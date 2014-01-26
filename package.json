@@ -1,6 +1,6 @@
 {
   "name": "AlignEquals"
-, "version": "0.1.0"
+, "version": "0.2.0"
 , "description": "Align equal signs on multiple lines"
 , "main": "init.js"
 , "repository": {

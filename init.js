@@ -21,9 +21,9 @@ Hooks.addMenuItem('Go/Align Equals', 'control-=', function() {
 
 function alignEquals (text) {
 	
-	// remove repetitive spaces
-	text = text.replace(/(.+?)\s+?=\s+(.*)/gm, "$1 = $2");
-	
+	// remove repetitive spaces. Add some if equal sign is has none surrounding it.
+	text = text.replace(/(.+?)\s*?=\s*(.*)/gm, "$1 = $2");	
+
 	var lines = text.split("\n");
 	var positions = [];
 	var maxPos = 0;
