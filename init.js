@@ -7,7 +7,7 @@
  * @see: http://mixins.chocolatapp.com/docs/
  */
 
-Hooks.addMenuItem('Actions/Javascript/JSON/Clean Formatting', 'cmd-alt-j', function() {
+Hooks.addMenuItem('Go/Align Equals', 'control-=', function() {
 	Recipe.run(function(recipe) {
 		
 		var sel = (!recipe.selection.length)? new Range(0, recipe.length) : recipe.selection
@@ -20,32 +20,33 @@ Hooks.addMenuItem('Actions/Javascript/JSON/Clean Formatting', 'cmd-alt-j', funct
 
 
 function alignEquals (text) {
-text = text.replace(/(.+?)\s+?=\s+(.*)/gm, "$1 = $2");
+	
+	// remove repetitive spaces
+	text = text.replace(/(.+?)\s+?=\s+(.*)/gm, "$1 = $2");
+	
+	var lines = text.split("\n");
+	var positions = [];
+	var maxPos = 0;
+	for (var i=0; i<lines.length; i++) {
+	  positions[i] = lines[i].indexOf("=");
+	  if (positions[i] > maxPos) {
+	    maxPos = positions[i];
+	  }
+	}
 
-var lines = text.split("\n");
-var positions = [];
-var maxPos = 0;
-for (var i=0; i<lines.length; i++) {
-  positions[i] = lines[i].indexOf("=");
-  if (positions[i] > maxPos) {
-    maxPos = positions[i];
-  }
-}
+	for (var i=0; i<lines.length; i++) {
+	  if (positions[i] > 0) {
+	    var diff = maxPos - positions[i];
+	    var newline = lines[i].substr(0, positions[i] - 1);
+	    var spaces = "";
+	    for (var j=0; j<=diff; j++) {
+	      spaces += " ";
+	    }
+	    newline += spaces;
+	    newline += lines[i].substr(positions[i]);
+	    lines[i] = newline;
+	  }
+	}
 
-
-for (var i=0; i<lines.length; i++) {
-  if (positions[i] > 0) {
-    var diff = maxPos - positions[i];
-    var newline = lines[i].substr(0, positions[i] - 1);
-    var spaces = "";
-    for (var j=0; j<=diff; j++) {
-      spaces += " ";
-    }
-    newline += spaces;
-    newline += lines[i].substr(positions[i]);
-    lines[i] = newline;
-  }
-}
-
-return lines.join("\n");
+	return lines.join("\n");
 }
