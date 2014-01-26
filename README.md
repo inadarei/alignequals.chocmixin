@@ -11,7 +11,7 @@ var survey      = "Some Survey";
 var sidebar   =  "App Sidebar"; 
 var main    =      "App Main";
 ```
-you can select that mess, click `ctrl+=` and you get a beautifully formatted, easy-on-eyes prettines, such as:
+you can select that mess, click `ctrl`+`=` and you get a beautifully formatted, easy-on-eyes prettines, such as:
 
 ```javascript
 var survey  = "Some Survey";
