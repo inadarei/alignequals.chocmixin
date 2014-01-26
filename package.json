@@ -1,0 +1,17 @@
+{
+	"name": "AlignEquals",
+	"version": "0.1.0",
+	"description": "Align equal signs on multiple lines",
+	"main": "init.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/inadarei/cleanjson.chocmixin.git"
+	},
+	"keywords": [
+		"prettify",
+		"equals",
+		"format"
+	],
+	"author": "Irakli Nadareishvili <irakli@gmail.com>",
+	"license": "MIT"
+}
