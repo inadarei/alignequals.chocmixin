@@ -2,6 +2,24 @@
 
 A mixin for the awesome [Chocolat](http://chocolatapp.com) text editor that adds the ability to align equal signs across multiple lines.
 
+# What it does
+
+If you have a messy variable assignment code that looks like the following:
+
+```javascript
+var survey      = "Some Survey";
+var sidebar   =  "App Sidebar"; 
+var main    =      "App Main";
+```
+you can select that mess, click `ctrl`+`=` and you get a beautifully formatted, easy-on-eyes prettines, such as:
+
+```javascript
+var survey  = "Some Survey";
+var sidebar = "App Sidebar"; 
+var main    = "App Main";
+
+```
+
 ## Tested with 
 
  * Chocolat 1.2.1
